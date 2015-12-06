@@ -1,1 +1,2 @@
-shadowsocks-server -k $PASSWORD -m $METHOD -P $PORT
+#!/bin/sh
+shadowsocks-server -k $PASSWORD -m $METHOD -p $PORT
