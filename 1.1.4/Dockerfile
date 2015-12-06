@@ -10,7 +10,6 @@ WORKDIR /go/src/github.com/shadowsocks
 COPY shadowsocks-server-wrapper /usr/local/bin/
 RUN chmod a+x /usr/local/bin/shadowsocks-server-wrapper
 
-#ENV GOROOT /usr/local/go/
 
 ENV SHADOWSOCKS_VERSION 1.1.4
 ENV SHADOWSOCKS_DOWNLOAD_URL https://github.com/shadowsocks/shadowsocks-go/archive/$SHADOWSOCKS_VERSION.zip
@@ -23,5 +22,6 @@ RUN curl -fsSL "$SHADOWSOCKS_DOWNLOAD_URL" -o shadowsocks-go.zip \
 
 RUN go get github.com/shadowsocks/shadowsocks-go/cmd/shadowsocks-server
 
+USER nobody
 
 CMD ["shadowsocks-server-wrapper"]
