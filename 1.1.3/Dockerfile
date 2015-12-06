@@ -23,5 +23,6 @@ RUN curl -fsSL "$SHADOWSOCKS_DOWNLOAD_URL" -o shadowsocks-go.zip \
 
 RUN go get github.com/shadowsocks/shadowsocks-go/cmd/shadowsocks-server
 
+USER nobody
 
 CMD ["shadowsocks-server-wrapper"]
