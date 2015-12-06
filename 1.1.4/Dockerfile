@@ -7,8 +7,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 RUN mkdir -p /go/src/github.com/shadowsocks
 WORKDIR /go/src/github.com/shadowsocks
 
-#COPY shadowsocks-server-wrapper /usr/local/bin/
-#RUN chmod a+x /usr/local/bin/shadowsocks-server-wrapper
+COPY shadowsocks-server-wrapper /usr/local/bin/
+RUN chmod a+x /usr/local/bin/shadowsocks-server-wrapper
 
 #ENV GOROOT /usr/local/go/
 
@@ -24,4 +24,4 @@ RUN curl -fsSL "$SHADOWSOCKS_DOWNLOAD_URL" -o shadowsocks-go.zip \
 RUN go get github.com/shadowsocks/shadowsocks-go/cmd/shadowsocks-server
 
 
-CMD ["shadowsocks-server", "-k $PASSWORD"]
+CMD ["shadowsocks-server-wrapper"]
